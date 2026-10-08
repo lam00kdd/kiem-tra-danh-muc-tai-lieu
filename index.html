@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kiểm tra danh mục tài liệu</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="app">
+  <header><div><p class="eyebrow">KIỂM TRA DANH MỤC TÀI LIỆU</p><h1>Kiểm tra danh mục tài liệu ISO-xx-xxxx_RE04</h1><p class="muted">Đọc và kiểm tra file Excel trực tiếp trên máy của bạn.</p><p class="privacy-note"><strong>Riêng tư:</strong> File được xử lý ngay trong trình duyệt trên máy của bạn, không tải lên máy chủ hay dịch vụ lưu trữ đám mây.</p></div><button id="addFiles" class="primary">+ Thêm file Excel</button><input id="fileInput" type="file" accept=".xlsx,.xls" multiple hidden></header>
+  <section class="source card"><div class="card-title"><div><h2>1. Nguồn chọn file</h2><p class="muted">Chỉ sheet hiển thị có tiêu đề hợp lệ mới được đưa vào danh sách.</p></div><div class="actions"><button id="selectAll">Chọn tất cả sheet</button><button id="clearAll">Bỏ chọn tất cả</button><button id="scan" class="primary">Đọc & kiểm tra</button></div></div><div id="files" class="file-list"><div class="empty">Chưa có file. Bấm “Thêm file Excel” để bắt đầu.</div></div><div class="settings"><label>Mốc năm hai chữ số <input id="pivot" type="number" min="1" max="99" value="50"></label><span id="pivotHint" class="muted"></span></div></section>
+  <section class="summary card"><div id="summary">Sẵn sàng</div><div class="progress"><span id="progressBar"></span></div></section>
+  <section class="card tabs"><nav><button class="tab active" data-tab="catalog">Danh mục</button><button class="tab" data-tab="issues">Lỗi & cảnh báo</button><button class="tab" data-tab="log">Nhật ký</button></nav><div id="catalog" class="panel active"><div class="toolbar"><input id="search" placeholder="Tìm mã hoặc tên tài liệu…"><select id="kind"><option>Tất cả loại</option><option>HDCV</option><option>BIEU MAU</option></select><button id="exportCatalog">Xuất danh mục XLSX</button><button id="exportCatalogCsv">Xuất CSV</button></div><div class="table-wrap"><table id="catalogTable"></table></div></div><div id="issues" class="panel"><div class="toolbar"><select id="issueLevel"><option>Tất cả</option><option>LỖI</option><option>CẢNH BÁO</option></select><button id="exportIssues">Xuất lỗi CSV</button></div><div class="table-wrap"><table id="issueTable"></table></div></div><div id="log" class="panel"><pre id="logText"></pre></div></section>
+</main><dialog id="detail"><div class="dialog-head"><h2>Chi tiết tài liệu</h2><button id="closeDetail">×</button></div><pre id="detailText"></pre></dialog>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script><script src="app.js"></script>
+</body></html>
+<button id="exportIssuesXlsx">Xuất lỗi XLSX</button>
+
